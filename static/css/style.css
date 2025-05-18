@@ -3,15 +3,49 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Navbar styles */
+.navbar {
+    background-color: #000 !important;
+}
+
+.navbar .nav-link,
+.navbar .navbar-brand {
+    color: #fff !important;
+}
+
+.navbar .nav-link:hover {
+    color: #ccc !important;
+}
+
 .navbar-brand {
     font-weight: bold;
     font-size: 1.5rem;
 }
 
+/* Hero section styles */
+.hero-section {
+    background-image: url('/static/images/hero.jpg');
+    background-color: #000;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+/* Footer styles */
 footer {
     font-size: 0.9rem;
 }
 
+/* Container override */
 .container {
     max-width: 960px;
 }
