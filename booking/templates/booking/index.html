@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home | MoveMinder{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="hero bg-light p-5 rounded text-center">
+    <h1 class="display-4">Welcome to MoveMinder</h1>
+    <p class="lead">Easily book gym sessions, manage your schedule, and stay on track with your fitness goals.</p>
+    <a href="#" class="btn btn-primary btn-lg">Get Started</a>
+</div>
+
+<!-- Features Section -->
+<div class="row text-center mt-5">
+    <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h5 class="card-title">Easy Booking</h5>
+                <p class="card-text">Book your gym sessions with just a few clicks. No queues, no hassle.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mt-4 mt-md-0">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h5 class="card-title">Track Progress</h5>
+                <p class="card-text">Monitor your fitness journey with progress logs and activity summaries.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mt-4 mt-md-0">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h5 class="card-title">Stay Notified</h5>
+                <p class="card-text">Receive email reminders and notifications for upcoming sessions.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
