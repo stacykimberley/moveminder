@@ -46,6 +46,16 @@ body {
   width: 100%;           
 }
 
+.about-hero {
+    background-image: url('/static/images/about-banner.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 50vh;
+    padding: 2rem;
+}
+
+
 /* Footer styles */
 footer {
     font-size: 0.9rem;
