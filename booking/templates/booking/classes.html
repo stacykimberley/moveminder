@@ -3,48 +3,26 @@
 
 {% block content %}
 <div class="container py-5">
-    <h1 class="mb-4">Our Fitness Classes</h1>
-    <div class="row g-4">
-        <!-- Yoga -->
-        <div class="col-md-3">
+    <h1 class="mb-4">Our Classes</h1>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for gym_class in classes %}
+        <div class="col">
             <div class="card h-100 shadow-sm">
-                <img src="{% static 'images/yoga.jpg' %}" class="card-img-top" alt="Yoga">
+                {% if gym_class.image %}
+                <img src="{{ gym_class.image.url }}" class="card-img-top object-fit-cover" style="height: 250px;" alt="{{ gym_class.name }}">
+                {% else %}
+                <img src="{% static 'images/placeholder.jpg' %}" class="card-img-top" alt="No Image">
+                {% endif %}
                 <div class="card-body">
-                    <h5 class="card-title">Yoga</h5>
-                    <p class="card-text">Improve flexibility and reduce stress with our calming and relaxing yoga sessions.</p>
+                    <h5 class="card-title">{{ gym_class.name }}</h5>
+                    <p class="card-text">{{ gym_class.description }}</p>
+                    <p><strong>Time Slots:</strong> {{ gym_class.available_time_slots }}</p>
                 </div>
             </div>
         </div>
-        <!-- Pilates -->
-        <div class="col-md-3">
-            <div class="card h-100 shadow-sm">
-                <img src="{% static 'images/pilates.jpg' %}" class="card-img-top" alt="Pilates">
-                <div class="card-body">
-                    <h5 class="card-title">Pilates</h5>
-                    <p class="card-text">Strengthen your core and enhance posture with our expert Pilates classes.</p>
-                </div>
-            </div>
-        </div>
-        <!-- Aqua Aerobics -->
-        <div class="col-md-3">
-            <div class="card h-100 shadow-sm">
-                <img src="{% static 'images/aqua_aerobics.jpg' %}" class="card-img-top" alt="Aqua Aerobics">
-                <div class="card-body">
-                    <h5 class="card-title">Aqua Aerobics</h5>
-                    <p class="card-text">Low-impact, high-energy workouts in water to improve fitness and flexibility.</p>
-                </div>
-            </div>
-        </div>
-        <!-- Zumba -->
-        <div class="col-md-3">
-            <div class="card h-100 shadow-sm">
-                <img src="{% static 'images/zumba.jpg' %}" class="card-img-top" alt="Zumba">
-                <div class="card-body">
-                    <h5 class="card-title">Zumba</h5>
-                    <p class="card-text">Dance your way to fitness with our fun and energetic Zumba sessions.</p>
-                </div>
-            </div>
-        </div>
+        {% empty %}
+        <p>No classes available at the moment.</p>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
