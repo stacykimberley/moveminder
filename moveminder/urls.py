@@ -17,10 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('booking.urls')),
+    path("contact/", TemplateView.as_view(template_name="contact_us.html"), name="contact_us"),
 ]
 
 if settings.DEBUG:
