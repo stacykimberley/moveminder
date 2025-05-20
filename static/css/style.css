@@ -22,6 +22,15 @@ body {
     font-size: 1.5rem;
 }
 
+.dropdown-menu-dark {
+    background-color: #111;
+    border: none;
+}
+
+.dropdown-menu-dark .dropdown-item:hover {
+    background-color: #222;
+}
+
 /* Hero section styles */
 .hero-section {
     background-image: url('/static/images/hero.jpg');
@@ -138,3 +147,126 @@ button.btn-success {
 button.btn-success:hover {
     background-color: #218838;
 }
+
+/* Container and overall page */
+.account-base-entrance {
+  max-width: 400px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #111; /* dark bg for entrance */
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+  color: #eee;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Headings */
+.account-base-entrance h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #1db954; /* MoveMinder green accent */
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+/* Paragraph/link below heading */
+.account-base-entrance p {
+  font-size: 0.9rem;
+  color: #bbb;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.account-base-entrance p a {
+  color: #1db954;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.account-base-entrance p a:hover {
+  text-decoration: underline;
+}
+
+/* Form styling */
+.account-base-entrance form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Inputs */
+.account-base-entrance input[type="text"],
+.account-base-entrance input[type="email"],
+.account-base-entrance input[type="password"] {
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background-color: #222;
+  color: #eee;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.account-base-entrance input[type="text"]:focus,
+.account-base-entrance input[type="email"]:focus,
+.account-base-entrance input[type="password"]:focus {
+  outline: none;
+  border-color: #1db954;
+  background-color: #111;
+}
+
+/* Submit button */
+.account-base-entrance button[type="submit"] {
+  background-color: #1db954;
+  color: #111;
+  font-weight: 700;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+}
+
+.account-base-entrance button[type="submit"]:hover {
+  background-color: #17a84b;
+}
+
+/* Divider line for extra login methods */
+.account-base-entrance hr {
+  border: none;
+  border-top: 1px solid #333;
+  margin: 1.5rem 0;
+}
+
+/* Button groups for passkey / code login */
+.account-base-entrance .button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.account-base-entrance .button-group button,
+.account-base-entrance .button-group a {
+  background-color: transparent;
+  border: 2px solid #1db954;
+  color: #1db954;
+  padding: 0.5rem;
+  border-radius: 6px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.account-base-entrance .button-group button:hover,
+.account-base-entrance .button-group a:hover {
+  background-color: #1db954;
+  color: #111;
+}
+
+
+

@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import GymClass
 from .forms import BookingForm
 from django.forms import Select
+from django.core.exceptions import ValidationError
 
 def index(request):
     return render(request, 'booking/index.html')
@@ -27,9 +28,13 @@ def book_class(request, class_id):
         form = BookingForm(request.POST)
         if form.is_valid():
             booking = form.save(commit=False)
-            booking.gym_class = gym_class
-            booking.save()
-            return redirect('booking_success')  # Add a success page view/url
+            booking.gym_class = gym_class  # Must come BEFORE full_clean
+            try:
+                booking.full_clean()  # This triggers model validation (like max capacity check)
+                booking.save()
+                return redirect('booking_success')
+            except ValidationError as e:
+                form.add_error(None, e)  # Add error to the form
     else:
         form = BookingForm()
         form.fields['time_slot'].widget = Select(choices=[(slot, slot) for slot in gym_class.get_time_slots()])
