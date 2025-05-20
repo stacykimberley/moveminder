@@ -70,3 +70,71 @@ footer {
 .container {
     max-width: 960px;
 }
+
+/* Style the booking container */
+.container2 {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the form heading */
+.container2 h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+form p {
+    margin-bottom: 20px;
+}
+
+form p label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+}
+
+form p input,
+form p select {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+form p input:focus,
+form p select:focus {
+    border-color: #28a745;
+    outline: none;
+    box-shadow: 0 0 4px rgba(40, 167, 69, 0.3);
+}
+
+/* Style error messages (if any) */
+.errorlist {
+    color: #d9534f;
+    font-size: 14px;
+    margin-top: 5px;
+    list-style: none;
+    padding-left: 0;
+}
+
+/* Confirm Booking button */
+button.btn-success {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+button.btn-success:hover {
+    background-color: #218838;
+}

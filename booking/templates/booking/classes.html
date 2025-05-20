@@ -16,7 +16,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ gym_class.name }}</h5>
                     <p class="card-text">{{ gym_class.description }}</p>
-                    <p><strong>Time Slots:</strong> {{ gym_class.available_time_slots }}</p>
+                    <a href="{% url 'book_class' gym_class.id %}" class="btn btn-primary mt-2">Book Now</a>
                 </div>
             </div>
         </div>
