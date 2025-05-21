@@ -1,1 +1,1 @@
-web: gunicorn moveminder.wsgi
+web: gunicorn moveminder.wsgi:application --log-file -
