@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 from pathlib import Path
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 import dj_database_url
 from dotenv import load_dotenv
 
@@ -29,7 +32,7 @@ if env_path.exists():
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG", "False") == "True"
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
@@ -53,6 +56,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'booking',
     'crispy_forms',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 INSTALLED_APPS += ["allauth.account.templatetags"]
@@ -151,10 +156,17 @@ SITE_ID = 1
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / "static"]
+STATIC_ROOT = BASE_DIR / "staticfiles"  # Directory for collected static files
 
-STATIC_ROOT = str(BASE_DIR / "staticfiles")
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+# WhiteNoise settings for serving static files
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': os.getenv('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.getenv('CLOUDINARY_API_SECRET'),
+}
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / "media"
