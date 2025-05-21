@@ -2,8 +2,9 @@ from django.contrib.auth.decorators import login_required
 from django.forms import Select
 from django.core.exceptions import ValidationError
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages  
 from .models import GymClass, Booking
-from .forms import BookingForm  # assumes BookingForm is updated to accept gym_class
+from .forms import BookingForm  
 
 def index(request):
     return render(request, 'booking/index.html')
@@ -46,3 +47,14 @@ def book_class(request, class_id):
 def my_bookings(request):
     user_bookings = Booking.objects.filter(user=request.user).select_related('gym_class').order_by('date', 'time_slot')
     return render(request, 'booking/my_bookings.html', {'bookings': user_bookings})
+
+# View for canceling a booking
+@login_required
+def cancel_booking(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id, user=request.user)
+    if request.method == 'POST':
+        booking.delete()
+        messages.success(request, "Your booking has been canceled.")
+        return redirect('my_bookings')
+    
+    return render(request, 'booking/confirm_cancel.html', {'booking': booking})
