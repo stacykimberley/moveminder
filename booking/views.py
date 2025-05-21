@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.forms import Select
 from django.core.exceptions import ValidationError
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import GymClass
+from .models import GymClass, Booking
 from .forms import BookingForm  # assumes BookingForm is updated to accept gym_class
 
 def index(request):
@@ -40,3 +40,9 @@ def book_class(request, class_id):
         'gym_class': gym_class,
         'form': form,
     })
+
+# View for displaying user's bookings
+@login_required
+def my_bookings(request):
+    user_bookings = Booking.objects.filter(user=request.user).select_related('gym_class').order_by('date', 'time_slot')
+    return render(request, 'booking/my_bookings.html', {'bookings': user_bookings})
