@@ -24,7 +24,7 @@ def book_class(request, class_id):
     gym_class = get_object_or_404(GymClass, id=class_id)
 
     if request.method == 'POST':
-        form = BookingForm(request.POST, gym_class=gym_class)  # ✅ Pass gym_class to form
+        form = BookingForm(request.POST, gym_class=gym_class)  # Pass gym_class to form
         if form.is_valid():
             booking = form.save(commit=False)
             booking.user = request.user
@@ -32,7 +32,7 @@ def book_class(request, class_id):
             booking.save()
             return redirect('booking_success')
     else:
-        form = BookingForm(gym_class=gym_class)  # ✅ Pass gym_class to form
+        form = BookingForm(gym_class=gym_class)  # Pass gym_class to form
         form.fields['time_slot'].widget = Select(
             choices=[(slot, slot) for slot in gym_class.get_time_slots()]
         )
