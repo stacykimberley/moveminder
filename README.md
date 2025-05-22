@@ -241,7 +241,7 @@ As the **MoveMinder** platform evolves, additional features will be added to imp
 
 ## Testing
 ### Css
-![CSS](readme/assets/images/csstesting.png)
+![CSS](readme/assets/images/movecsstesting.png)
 
 
 ## Deployment
